@@ -8,6 +8,11 @@ import '../widgets/building_transform.dart';
 import '../widgets/single_weather.dart';
 import '../widgets/slider_dot.dart';
 
+class WeatherApp extends StatefulWidget {
+  @override
+  _WeatherAppState createState() => _WeatherAppState();
+}
+
 class _WeatherAppState extends State<WeatherApp> {
   int _currentPage = 0;
   String bgImg;
@@ -81,12 +86,13 @@ class _WeatherAppState extends State<WeatherApp> {
               ),
             ),
             TransformerPageView(
-                ScrollDirection: Axis.horizontal,
-                transformer: ScalseFadeTransformer(),
-                viewportFraction: 0.8,
-                onPageChanged: _onPageChanged,
-                itemCount: locationList.length,
-                itemBuilder: (ctx, i) => SingleWeather(i)),
+              scrollDirection: Axis.horizontal,
+              transformer: ScaleAndFadeTransformer(),
+              viewportFraction: 0.8,
+              onPageChanged: _onPageChanged,
+              itemCount: locationList.length,
+              itemBuilder: (ctx, i) => SingleWeather(i),
+            ),
           ],
         ),
       ),

@@ -37,8 +37,8 @@ class ThreeDTransformer extends PageTransformer {
     }
     return new Transform(
       transform: new Matrix4.identity()
-      ..rotate(new Vector3(0.0, 2.0, 0.0), position * 1.5),
-      origin: new Offset(pivotX, height / 2),
+        ..rotate(new Vector3(0.0, 2.0, 0.0), position * 1.5),
+      origin: new Offset(pivotx, height / 2),
       child: child,
     );
   }
@@ -161,8 +161,8 @@ class ScalseFadeTransformer extends PageTransformer{
   final double _fade;
 
   ScalseFadeTransformer({double fade: 0.3, double scale: 0.88})
-    :_fade = fade,
-    _scale = scale;
+    : _fade = fade,
+      _scale = scale;
 
     @override
     Widget transform(Widget item, TransformInfo info){
